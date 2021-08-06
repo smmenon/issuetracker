@@ -46,7 +46,7 @@ export default function IdeaHubPage() {
       <Button variant="contained"
               color="primary"
               component={Link}
-              to="../../IdeaHubForm"
+              to="./IdeaHubForm"
               size="large"
               className={classes.backButton}
       >
