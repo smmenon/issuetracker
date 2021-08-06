@@ -3,7 +3,7 @@ import { Grid, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Image from 'material-ui-image';
 import sideImage from './../../images/SideImage1.png';
-import uptrendImage from './../../images/navaritih_uptrend.png';
+import pyramidImage from './../../images/navaritih_pyramid.png';
 
 // styles
 import useStyles from "./styles";
@@ -64,7 +64,23 @@ export default function HomePage() {
         </Grid>
         <Grid item xs={12}>
           <Widget disableWidgetMenu> 
-
+          <Grid container item xs={12}>
+            <Grid item xs={8}>
+              <Image src={pyramidImage} aspectRatio='1/4' imageStyle={{width:'inherit'}} />
+            </Grid>
+            <Grid item xs={4}>
+                  <Typography variant="h4">
+                    Foster your thoughts into ideas  and ideas into innovation. 
+                    Collaborate on ideas and execute …
+                  </Typography>
+                  <br />
+                  <Typography>
+                    A platform to post new ideas and collaborate with like-minded to execute as a project. Search for existing ideas and express interest.
+                    Tag your ideas to increase the search hits that helps collaborators to contribute. Discuss with contributors to make them stakeholder 
+                    or participant for the idea and co-execute.
+                  </Typography>
+            </Grid>
+          </Grid>
           </Widget>
         </Grid>
         <Grid item xs={12}>
