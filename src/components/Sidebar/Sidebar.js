@@ -40,6 +40,7 @@ const structure = [
     link: "/app/notifications",
     icon: <NotificationsIcon />,
   },
+  { id: 4, label: "Idea Hub New", link: "/app/ideaHubNew", icon: <IdeaIcon /> },
 ];
 
 function Sidebar({ location }) {
