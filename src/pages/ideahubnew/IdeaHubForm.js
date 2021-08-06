@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Button, TextField, FormControl, MenuItem, Select, InputLabel, Input } from "@material-ui/core";
+import { Grid, Button, TextField, FormControl, MenuItem, Select, InputLabel, TextareaAutosize } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import PageTitle from '../../components/PageTitle';
 import Widget from '../../components/Widget';
@@ -47,8 +47,9 @@ export default function IdeaHubPage() {
                   <Grid container item xs={12} spacing={1}>
                     <TextField id="summary" label="Summary" variant="outlined" style={{ margin: 8 }} margin="normal" fullWidth/>
                   </Grid>
-                  <Grid container item xs={12} spacing={1}>
-                    <TextField id="description" label="Description" variant="outlined" style={{ margin: 8 }} margin="normal" fullWidth/>
+                  <Grid container item xs={12} spacing={100}>
+                    <TextField id="description" label="Description" minRows={10} multiline variant="outlined" style={{ margin: 8 }} margin="normal" fullWidth/>
+                    {/* <TextareaAutosize label="Description" variant="outlined" minRows={3} style={{ margin: 8 }} margin="normal" fullWidth /> */}
                   </Grid>
                   <Grid container item xs={12} spacing={1}>
                     <TextField id="owner" label="Owner" variant="outlined" style={{ margin: 8 }} margin="normal" fullWidth/>
@@ -79,6 +80,22 @@ export default function IdeaHubPage() {
                       </FormControl>                  
                     </Grid>
                   </Grid>
+                {/* <Grid container item xs={12} spacing={1}>
+                    <FormControl variant="outlined" fullWidth>
+                    <input
+        accept="image/*"
+        id="contained-button-file"
+        multiple
+        type="file"
+        style={{display:'none'}}
+      />
+      <label htmlFor="contained-button-file">
+        <Button variant="contained" color="primary" component="span" size="large" fullWidth style={{ margin: 8 }}>
+          Upload Image
+        </Button>
+      </label>
+                    </FormControl>                  
+                </Grid> */}
                   <Grid container item xs={12} spacing={1}>
                     <Grid item xs={6}>
                       <Button onClick={handleSubmit} variant="contained" color="primary" component={Link} size="large" fullWidth>Create Ideas</Button>
