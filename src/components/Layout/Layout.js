@@ -22,6 +22,8 @@ import Home from "../../pages/home";
 import Notifications from "../../pages/notifications";
 import Maps from "../../pages/maps";
 import IdeaHub from "../../pages/ideahub/IdeaHub";
+import IdeaHubNew from "../../pages/ideahubnew/IdeaHub";
+import IdeaHubForm from "../../pages/ideahubnew/IdeaHubForm";
 import Icons from "../../pages/icons";
 import Charts from "../../pages/charts";
 
@@ -49,6 +51,8 @@ function Layout(props) {
               <Route path="/app/dashboard" component={Dashboard} />
               <Route path="/app/home" component={Home} />
               <Route path="/app/ideaHub" component={IdeaHub} />
+              <Route path="/app/ideaHubNew" component={IdeaHubNew} />
+              <Route path="/app/ideaHubForm" component={IdeaHubForm} />
               <Route path="/app/notifications" component={Notifications} />
               <Route
                 exact
