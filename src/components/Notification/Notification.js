@@ -14,6 +14,7 @@ import {
   AccountBox as CustomerIcon,
   Done as ShippedIcon,
   Publish as UploadIcon,
+  GroupWork as CollaborateIcon,
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
 import classnames from "classnames";
@@ -39,6 +40,7 @@ const typesIcons = {
   report: <ReportIcon />,
   upload: <UploadIcon />,
   disc: <DiscIcon />,
+  collaborate: <CollaborateIcon />,
 };
 
 export default function Notification({ variant, ...props }) {

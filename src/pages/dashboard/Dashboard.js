@@ -42,6 +42,13 @@ const PieChartData = [
   { name: "Group D", value: 200, color: "success" },
 ];
 
+const PieChartStatusData = [
+  { name: "Completed", value: 400, color: "primary" },
+  { name: "Processing", value: 300, color: "secondary" },
+  { name: "Hold", value: 300, color: "warning" },
+  { name: "Fresh", value: 200, color: "success" },
+];
+
 export default function Dashboard(props) {
   var classes = useStyles();
   var theme = useTheme();
@@ -129,8 +136,24 @@ export default function Dashboard(props) {
               </Typography>
               <LinearProgress
                 variant="determinate"
-                value={35}
+                value={55}
                 classes={{ barColorPrimary: classes.progressBarPrimary }}
+                className={classes.progress}
+              />
+            </div>
+            <div className={classes.progressSection}>
+              <Typography
+                size="md"
+                color="text"
+                colorBrightness="secondary"
+                className={classes.progressSectionTitle}
+              >
+                Technical
+              </Typography>
+              <LinearProgress
+                variant="determinate"
+                value={35}
+                classes={{ barColorPrimary: classes.progressBarSecondary }}
                 className={classes.progress}
               />
             </div>
@@ -141,7 +164,7 @@ export default function Dashboard(props) {
                 colorBrightness="secondary"
                 className={classes.progressSectionTitle}
               >
-                Technical
+                General
               </Typography>
               <LinearProgress
                 variant="determinate"
@@ -159,12 +182,12 @@ export default function Dashboard(props) {
                 <ResponsiveContainer width="100%" height={144}>
                   <PieChart>
                     <Pie
-                      data={PieChartData}
+                      data={PieChartStatusData}
                       innerRadius={20}
                       outerRadius={40}
                       dataKey="value"
                     >
-                      {PieChartData.map((entry, index) => (
+                      {PieChartStatusData.map((entry, index) => (
                         <Cell
                           key={`cell-${index}`}
                           fill={theme.palette[entry.color].main}
@@ -176,7 +199,7 @@ export default function Dashboard(props) {
               </Grid>
               <Grid item xs={6}>
                 <div className={classes.pieChartLegendWrapper}>
-                  {PieChartData.map(({ name, value, color }, index) => (
+                  {PieChartStatusData.map(({ name, value, color }, index) => (
                     <div key={color} className={classes.legendItemContainer}>
                       <Dot color={color} />
                       <Typography style={{ whiteSpace: "nowrap", fontSize: 12 }} >
@@ -337,16 +360,6 @@ export default function Dashboard(props) {
             <BigStat {...stat} />
           </Grid>
         ))}
-        <Grid item xs={12}>
-          <Widget
-            title="Support Requests"
-            upperTitle
-            noBodyPadding
-            bodyClass={classes.tableWidget}
-          >
-            <Table data={mock.table} />
-          </Widget>
-        </Grid>
       </Grid>
     </>
   );
