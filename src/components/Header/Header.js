@@ -22,7 +22,7 @@ import useStyles from "./styles";
 // components
 import { Badge, Typography } from "../Wrappers";
 import Notification from "../Notification/Notification";
-import nvtrImg from "../../images/navaritih.png"
+import nvtrImg from "../../images/navaritih.png";
 
 // context
 import {
