@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Image from 'material-ui-image';
 import sideImage from './../../images/SideImage1.png';
 import pyramidImage from './../../images/navaritih_pyramid.png';
-
+import pyramiImage from './../../pages/ideahub/IdeaHub';
 // styles
 import useStyles from "./styles";
 
@@ -46,7 +46,7 @@ export default function HomePage() {
                     variant="contained"
                     color="primary"
                     component={Link}
-                    to="/"
+                    to="./IdeaHubForm"
                     size="large"
                     className={classes.backButton}
                   >

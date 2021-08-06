@@ -265,25 +265,25 @@ export default function Dashboard(props) {
                   color="text"
                   colorBrightness="secondary"
                 >
-                  Daily Line Chart
+                  Skillset
                 </Typography>
                 <div className={classes.mainChartHeaderLabels}>
                   <div className={classes.mainChartHeaderLabel}>
                     <Dot color="warning" />
                     <Typography className={classes.mainChartLegentElement}>
-                      Tablet
+                      Platform Engineering - Azure
                     </Typography>
                   </div>
                   <div className={classes.mainChartHeaderLabel}>
                     <Dot color="primary" />
                     <Typography className={classes.mainChartLegentElement}>
-                      Mobile
+                      Pi-spark
                     </Typography>
                   </div>
                   <div className={classes.mainChartHeaderLabel}>
                     <Dot color="secondary" />
                     <Typography className={classes.mainChartLegentElement}>
-                      Desktop
+                      Bounded low-code platforms
                     </Typography>
                   </div>
                 </div>
@@ -341,6 +341,14 @@ export default function Dashboard(props) {
                   activeDot={false}
                 />
                 <Line
+                  type="natural"
+                  dataKey="ai"
+                  stroke={theme.palette.secondary.main}
+                  strokeWidth={2}
+                  dot={false}
+                  activeDot={false}
+                />
+                <Line
                   type="linear"
                   dataKey="tablet"
                   stroke={theme.palette.warning.main}
@@ -390,14 +398,16 @@ function getRandomData(length, min, max, multiplier = 10, maxDiff = 10) {
 function getMainChartData() {
   var resultArray = [];
   var tablet = getRandomData(31, 3500, 6500, 7500, 1000);
-  var desktop = getRandomData(31, 1500, 7500, 7500, 1500);
-  var mobile = getRandomData(31, 1500, 7500, 7500, 1500);
+  var desktop = getRandomData(500, 1500, 7500, 7500, 1500);
+  var mobile = getRandomData(100, 500, 1500, 2500, 3500);
+  var ai = getRandomData(31, 500, 7500, 10500, 1500);
 
   for (let i = 0; i < tablet.length; i++) {
     resultArray.push({
       tablet: tablet[i].value,
       desktop: desktop[i].value,
       mobile: mobile[i].value,
+      ai: ai[i].value,
     });
   }
 
