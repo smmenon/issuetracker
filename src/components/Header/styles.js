@@ -1,13 +1,29 @@
 import { makeStyles } from "@material-ui/styles";
 import { fade } from "@material-ui/core/styles/colorManipulator";
+import samarkan from "./../../fonts/Samarkan.TTF";
 
 export default makeStyles(theme => ({
+
+  samarkan2: {
+    fontFamily: 'Samarkan',
+    fontSize: 'normal',
+    fontDisplay: 'swap',
+    fontWeight: 600,
+    src: `
+      local('Samarkan'),
+      local('Samarkan-Regular'),
+      url(${samarkan}) format('TTF')
+    `,
+    unicodeRange:
+    'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF',
+  },
   logotype: {
     color: "white",
     marginLeft: theme.spacing(2.5),
     marginRight: theme.spacing(2.5),
+    fontFamily: 'Samarkan',
     fontWeight: 500,
-    fontSize: 18,
+    fontSize: 24,
     whiteSpace: "nowrap",
     [theme.breakpoints.down("xs")]: {
       display: "none",

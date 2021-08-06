@@ -81,5 +81,9 @@ export default makeStyles(theme => ({
   },
   widgetHeader: {
     paddingBottom: 8
+  },
+  widgetBody:{
+    alignItems: "center",
+    paddingBottom: 8
   }
 }));

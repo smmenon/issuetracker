@@ -4,8 +4,8 @@ import { makeStyles } from "@material-ui/styles";
 import MUIDataTable from "mui-datatables";
 
 // components
-import PageTitle from "../../components/PageTitle";
-import Widget from "../../components/Widget";
+import PageTitle from "../../components/PageTitle/PageTitle";
+import Widget from "../../components/Widget/Widget";
 import Table from "../dashboard/components/Table/Table";
 
 // data
@@ -37,11 +37,11 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Tables() {
+export default function IdeaHubPage() {
   const classes = useStyles();
   return (
     <>
-      <PageTitle title="Tables" />
+      <PageTitle title="Idea Hub" />
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <MUIDataTable

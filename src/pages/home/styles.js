@@ -9,6 +9,13 @@ export default makeStyles(theme => ({
     paddingBottom: theme.spacing(4),
     marginTop: theme.spacing(1),
   },
+  head: {
+    ...theme.typography.h1,
+    fontFamily:'Roboto',
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(1),
+    textAlign: "center",
+  },
   text: {
     marginBottom: theme.spacing(2),
   },
