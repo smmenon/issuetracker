@@ -1,25 +1,15 @@
 import React, { useState } from "react";
 import {
   Grid,
-  LinearProgress,
-  Select,
-  OutlinedInput,
-  MenuItem,
-  Button
-} from "@material-ui/core";
+  LinearProgress} from "@material-ui/core";
 import { useTheme } from "@material-ui/styles";
 import {
   ResponsiveContainer,
-  ComposedChart,
-  AreaChart,
   LineChart,
   Line,
-  Area,
   PieChart,
   Pie,
   Cell,
-  YAxis,
-  XAxis,
 } from "recharts";
 
 // styles
@@ -28,13 +18,25 @@ import useStyles from "./styles";
 // components
 import mock from "./mock";
 import Widget from "../../components/Widget";
-import PageTitle from "../../components/PageTitle";
 import { Typography } from "../../components/Wrappers";
 import Dot from "../../components/Sidebar/components/Dot";
-import Table from "./components/Table/Table";
 import BigStat from "./components/BigStat/BigStat";
+import { withStyles } from '@material-ui/core/styles';
 
-const mainChartData = getMainChartData();
+import Paper from '@material-ui/core/Paper';
+import {
+  ArgumentAxis,
+  ValueAxis,
+  Chart,
+  LineSeries,
+  Legend,
+} from '@devexpress/dx-react-chart-material-ui';
+
+import {
+  curveCatmullRom,
+  line,
+} from 'd3-shape';
+
 const PieChartData = [
   { name: "Group A", value: 400, color: "primary" },
   { name: "Group B", value: 300, color: "secondary" },
@@ -49,7 +51,64 @@ const PieChartStatusData = [
   { name: "Fresh", value: 200, color: "success" },
 ];
 
-export default function Dashboard(props) {
+const data = [
+  { month: 'January', functional: 59, technology: 93, generic: 82, },
+  { month: 'February', functional: 10, technology: 23, generic: 58, },
+  { month: 'March', functional: 33, technology: 66, generic: 88, },
+  { month: 'April', functional: 110, technology: 12, generic: 158, },
+  { month: 'May', functional: 10, technology: 23, generic: 58, },
+  { month: 'June', functional: 59, technology: 93, generic: 82, },
+  { month: 'July', functional: 10, technology: 23, generic: 58, },
+  { month: 'August', functional: 33, technology: 66, generic: 88, },
+  { month: 'September', functional: 110, technology: 12, generic: 158, },
+  { month: 'October', functional: 45, technology: 23, generic: 34, },
+  { month: 'November', functional: 110, technology: 12, generic: 158, },
+  { month: 'December', functional: 10, technology: 23, generic: 58, },
+];
+
+const Line1 = props => (
+  <LineSeries.Path
+    {...props}
+    path={line()
+      .x(({ arg }) => arg)
+      .y(({ val }) => val)
+      .curve(curveCatmullRom)}
+  />
+);
+
+const legendStyles = () => ({
+  root: {
+    display: 'flex',
+    margin: 'auto',
+    flexDirection: 'row',
+  },
+});
+const legendLabelStyles = theme => ({
+  label: {
+    marginBottom: theme.spacing(1),
+    whiteSpace: 'nowrap',
+  },
+});
+const legendItemStyles = () => ({
+  item: {
+    flexDirection: 'column-reverse',
+  },
+});
+
+const legendRootBase = ({ classes, ...restProps }) => (
+  <Legend.Root {...restProps} className={classes.root} />
+);
+const legendLabelBase = ({ classes, ...restProps }) => (
+  <Legend.Label className={classes.label} {...restProps} />
+);
+const legendItemBase = ({ classes, ...restProps }) => (
+  <Legend.Item className={classes.item} {...restProps} />
+);
+const Root = withStyles(legendStyles, { name: 'LegendRoot' })(legendRootBase);
+const Label = withStyles(legendLabelStyles, { name: 'LegendLabel' })(legendLabelBase);
+const Item = withStyles(legendItemStyles, { name: 'LegendItem' })(legendItemBase);
+
+export default function Dashboard() {
   var classes = useStyles();
   var theme = useTheme();
 
@@ -199,7 +258,7 @@ export default function Dashboard(props) {
               </Grid>
               <Grid item xs={6}>
                 <div className={classes.pieChartLegendWrapper}>
-                  {PieChartStatusData.map(({ name, value, color }, index) => (
+                  {PieChartStatusData.map(({ name, value, color }) => (
                     <div key={color} className={classes.legendItemContainer}>
                       <Dot color={color} />
                       <Typography style={{ whiteSpace: "nowrap", fontSize: 12 }} >
@@ -239,7 +298,7 @@ export default function Dashboard(props) {
               </Grid>
               <Grid item xs={6}>
                 <div className={classes.pieChartLegendWrapper}>
-                  {PieChartData.map(({ name, value, color }, index) => (
+                  {PieChartData.map(({ name, value, color }) => (
                     <div key={color} className={classes.legendItemContainer}>
                       <Dot color={color} />
                       <Typography style={{ whiteSpace: "nowrap", fontSize: 12 }} >
@@ -265,102 +324,38 @@ export default function Dashboard(props) {
                   color="text"
                   colorBrightness="secondary"
                 >
-                  Skillset
+                  New Ideas per Month
                 </Typography>
-                <div className={classes.mainChartHeaderLabels}>
-                  <div className={classes.mainChartHeaderLabel}>
-                    <Dot color="warning" />
-                    <Typography className={classes.mainChartLegentElement}>
-                      Platform Engineering - Azure
-                    </Typography>
-                  </div>
-                  <div className={classes.mainChartHeaderLabel}>
-                    <Dot color="primary" />
-                    <Typography className={classes.mainChartLegentElement}>
-                      Pi-spark
-                    </Typography>
-                  </div>
-                  <div className={classes.mainChartHeaderLabel}>
-                    <Dot color="secondary" />
-                    <Typography className={classes.mainChartLegentElement}>
-                      Bounded low-code platforms
-                    </Typography>
-                  </div>
-                </div>
-                <Select
-                  value={mainChartState}
-                  onChange={e => setMainChartState(e.target.value)}
-                  input={
-                    <OutlinedInput
-                      labelWidth={0}
-                      classes={{
-                        notchedOutline: classes.mainChartSelectRoot,
-                        input: classes.mainChartSelect,
-                      }}
-                    />
-                  }
-                  autoWidth
-                >
-                  <MenuItem value="daily">Daily</MenuItem>
-                  <MenuItem value="weekly">Weekly</MenuItem>
-                  <MenuItem value="monthly">Monthly</MenuItem>
-                </Select>
               </div>
             }
           >
-            <ResponsiveContainer width="100%" minWidth={500} height={350}>
-              <ComposedChart
-                margin={{ top: 0, right: -15, left: -15, bottom: 0 }}
-                data={mainChartData}
+            <Paper>
+              <Chart
+                data={data}
               >
-                <YAxis
-                  ticks={[0, 2500, 5000, 7500]}
-                  tick={{ fill: theme.palette.text.hint + "80", fontSize: 14 }}
-                  stroke={theme.palette.text.hint + "80"}
-                  tickLine={false}
+                <ArgumentAxis />
+                <ValueAxis />
+                <LineSeries
+                  name="Functional"
+                  valueField="functional"
+                  argumentField="month"
+                  seriesComponent={Line1}
                 />
-                <XAxis
-                  tickFormatter={i => i + 1}
-                  tick={{ fill: theme.palette.text.hint + "80", fontSize: 14 }}
-                  stroke={theme.palette.text.hint + "80"}
-                  tickLine={false}
+                <LineSeries
+                  name="Technical"
+                  valueField="technology"
+                  argumentField="month"
+                  seriesComponent={Line1}
                 />
-                <Area
-                  type="natural"
-                  dataKey="desktop"
-                  fill={theme.palette.background.light}
-                  strokeWidth={0}
-                  activeDot={false}
+                <LineSeries
+                  name="Generic"
+                  valueField="generic"
+                  argumentField="month"
+                  seriesComponent={Line1}
                 />
-                <Line
-                  type="natural"
-                  dataKey="mobile"
-                  stroke={theme.palette.primary.main}
-                  strokeWidth={2}
-                  dot={false}
-                  activeDot={false}
-                />
-                <Line
-                  type="natural"
-                  dataKey="ai"
-                  stroke={theme.palette.secondary.main}
-                  strokeWidth={2}
-                  dot={false}
-                  activeDot={false}
-                />
-                <Line
-                  type="linear"
-                  dataKey="tablet"
-                  stroke={theme.palette.warning.main}
-                  strokeWidth={2}
-                  dot={{
-                    stroke: theme.palette.warning.dark,
-                    strokeWidth: 2,
-                    fill: theme.palette.warning.main,
-                  }}
-                />
-              </ComposedChart>
-            </ResponsiveContainer>
+                <Legend position="bottom" rootComponent={Root} itemComponent={Item} labelComponent={Label} />
+              </Chart>
+            </Paper>
           </Widget>
         </Grid>
         {mock.bigStat.map(stat => (
@@ -378,7 +373,7 @@ function getRandomData(length, min, max, multiplier = 10, maxDiff = 10) {
   var array = new Array(length).fill();
   let lastValue;
 
-  return array.map((item, index) => {
+  return array.map(() => {
     let randomValue = Math.floor(Math.random() * multiplier + 1);
 
     while (
