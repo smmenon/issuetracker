@@ -30,6 +30,7 @@ export default function IdeaHubPage() {
   const classes = useStyles();
   return (
     <>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
           <MUIDataTable
             title="Ideas List"
@@ -40,11 +41,6 @@ export default function IdeaHubPage() {
             }}
           />
         </Grid>
-        {/* <Grid item xs={12}>
-          <Widget title="Material-UI Table" upperTitle noBodyPadding bodyClass={classes.tableOverflow}>
-            <Table data={mock.table} />
-          </Widget>
-        </Grid> */}
       </Grid>
     </>
   );
