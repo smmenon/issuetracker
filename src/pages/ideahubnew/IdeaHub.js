@@ -30,20 +30,6 @@ export default function IdeaHubPage() {
   const classes = useStyles();
   return (
     <>
-      <PageTitle title="" />
-      
-    <Grid container spacing={5}>
-      <Grid item xs={12} style={{ display: "flex", justifyContent: "flex-end" }}>
-      <Button variant="contained"
-              color="primary"
-              component={Link}
-              to="./IdeaHubForm"
-              size="large"
-              className={classes.backButton}
-      >
-        Create Ideas
-      </Button>
-      </Grid> 
         <Grid item xs={12}>
           <MUIDataTable
             title="Ideas List"

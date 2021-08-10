@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Image from 'material-ui-image';
 import sideImage from './../../images/SideImage1.png';
 import pyramidImage from './../../images/navaritih_pyramid.png';
-
+import pyramiImage from './../../pages/ideahub/IdeaHub';
 // styles
 import useStyles from "./styles";
 
@@ -23,7 +23,7 @@ export default function HomePage() {
           <Widget disableWidgetMenu>
             <Grid container item xs={12}>
               <Grid item xs={12}>
-                <div className={classes.head}>{"Innovate.Participate.Collaborate"}</div>
+                <div className={classes.head}>{"Participate.Collaborate.Innovate"}</div>
               </Grid>
               <Grid item xs={12}>
                 <div className={classes.head}>{""}</div>
@@ -46,7 +46,7 @@ export default function HomePage() {
                     variant="contained"
                     color="primary"
                     component={Link}
-                    to="/"
+                    to="./IdeaHubForm"
                     size="large"
                     className={classes.backButton}
                   >
@@ -70,14 +70,13 @@ export default function HomePage() {
             </Grid>
             <Grid item xs={4}>
                   <Typography variant="h4">
-                    Foster your thoughts into ideas  and ideas into innovation. 
-                    Collaborate on ideas and execute …
+                    Innvovator     Participant      Sponsor
                   </Typography>
                   <br />
                   <Typography>
-                    A platform to post new ideas and collaborate with like-minded to execute as a project. Search for existing ideas and express interest.
-                    Tag your ideas to increase the search hits that helps collaborators to contribute. Discuss with contributors to make them stakeholder 
-                    or participant for the idea and co-execute.
+                    The application can benefit multiple personas in the way each one look and infer the Ideas. 
+                    The platform provides complete transparency among the collaborators. Sponsors can get timely status 
+                    on the progress of execution.
                   </Typography>
             </Grid>
           </Grid>
@@ -127,17 +126,12 @@ export default function HomePage() {
               color="secondary"
             />
             <br />
-            <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Etiam non quam lacus suspendisse faucibus interdum posuere lorem. Neque sodales ut etiam sit amet nisl purus in mollis. Sit 
-            amet purus gravida quis. Et tortor at risus viverra adipiscing at in tellus. 
+            <Typography variant="h5">
+            Collaborate within and outside the team to bring in diverse knowledge and skillset to the idea.
             </Typography>
             <br />
             <Typography>
-            Nisl vel pretium lectus quam id leo in vitae. 
-            Commodo ullamcorper a lacus vestibulum sed arcu non. Amet porttitor eget dolor morbi non. Suspendisse interdum consectetur 
-            libero id faucibus nisl tincidunt eget. Suscipit tellus mauris a diam. Orci ac auctor augue mauris. Nibh tortor id aliquet 
-            lectus proin nibh nisl condimentum.
+            Embrace differences.
             </Typography>
           </Widget>
             </Grid>
