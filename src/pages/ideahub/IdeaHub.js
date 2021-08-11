@@ -64,7 +64,7 @@ export default function IdeaHubPage() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random/1"
+                    image="https://images.unsplash.com/photo-1627325071486-0b1e3083294a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYyODY1NDQ1NA&ixlib=rb-1.2.1&q=80&w=1080"
                     title="Functional Image"
                   />
                   <CardContent className={classes.cardContent}>
@@ -86,7 +86,11 @@ export default function IdeaHubPage() {
                 </Card>
               </Grid>
             ))}
+                <Grid item>
+                  <Button color="primary" to="./idealist">more</Button>
+                </Grid>
               </Grid>
+
             </Widget>
             </Grid>
             <Grid item xs={12}>
@@ -97,7 +101,7 @@ export default function IdeaHubPage() {
                     <Card className={classes.card}>
                       <CardMedia
                         className={classes.cardMedia}
-                        image="https://source.unsplash.com/random/technology"
+                        image="https://images.unsplash.com/photo-1626614431317-9f6430ae7492?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYyODYwOTY0NA&ixlib=rb-1.2.1&q=80&w=1080"
                         title="Image title"
                       />
                       <CardContent className={classes.cardContent}>
@@ -125,12 +129,12 @@ export default function IdeaHubPage() {
             <Grid item xs={12}>
             <Widget title="General Ideas" disableWidgetMenu>
               <Grid container spacing={4}>
-                {tcards.map((card) => (
+                {gcards.map((card) => (
                   <Grid item key={card} xs={12} sm={6} md={3}>
                     <Card className={classes.card}>
                       <CardMedia
                         className={classes.cardMedia}
-                        image="https://source.unsplash.com/random"
+                        image="https://images.unsplash.com/photo-1628317886759-518a36aa99ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYyODY1Mzc4Nw&ixlib=rb-1.2.1&q=80&w=1080"
                         title="Image title"
                       />
                       <CardContent className={classes.cardContent}>

@@ -26,6 +26,7 @@ import IdeaHubNew from "../../pages/ideahubnew/IdeaHub";
 import IdeaHubForm from "../../pages/ideahubnew/IdeaHubForm";
 import Icons from "../../pages/icons";
 import Charts from "../../pages/charts";
+import IdeaList from '../../pages/ideahub/IdeaList'
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
@@ -54,6 +55,7 @@ function Layout(props) {
               <Route path="/app/ideaHubNew" component={IdeaHubNew} />
               <Route path="/app/ideaHubForm" component={IdeaHubForm} />
               <Route path="/app/notifications" component={Notifications} />
+              <Route path="/app/idealist" component={IdeaList} />
               <Route
                 exact
                 path="/app/ui"
