@@ -24,7 +24,7 @@ import Maps from "../../pages/maps";
 import IdeaHub from "../../pages/ideahub/IdeaHub";
 import IdeaHubNew from "../../pages/ideahubnew/IdeaHub";
 import IdeaHubForm from "../../pages/ideahubnew/IdeaHubForm";
-import Icons from "../../pages/icons";
+import Profile from "../../pages/profile/Profile";
 import Charts from "../../pages/charts";
 import IdeaList from '../../pages/ideahub/IdeaList'
 
@@ -56,13 +56,8 @@ function Layout(props) {
               <Route path="/app/ideaHubForm" component={IdeaHubForm} />
               <Route path="/app/notifications" component={Notifications} />
               <Route path="/app/idealist" component={IdeaList} />
-              <Route
-                exact
-                path="/app/ui"
-                render={() => <Redirect to="/app/ui/icons" />}
-              />
+              <Route path="/app/profile" component={Profile} />
               <Route path="/app/ui/maps" component={Maps} />
-              <Route path="/app/ui/icons" component={Icons} />
               <Route path="/app/ui/charts" component={Charts} />
             </Switch>
           </div>

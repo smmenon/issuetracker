@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/styles";
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -87,7 +88,10 @@ export default function IdeaHubPage() {
               </Grid>
             ))}
                 <Grid item>
-                  <Button color="primary" to="./idealist">more</Button>
+                  <Button 
+                  color="primary" 
+                  component={Link}
+                  to="./idealist">more</Button>
                 </Grid>
               </Grid>
 

@@ -22,7 +22,6 @@ import useStyles from "./styles";
 // components
 import { Badge, Typography } from "../Wrappers";
 import Notification from "../Notification/Notification";
-import nvtrImg from "../../images/navaritih.png";
 
 // context
 import {
@@ -30,7 +29,7 @@ import {
   useLayoutDispatch,
   toggleSidebar,
 } from "../../context/LayoutContext";
-import { useUserDispatch, signOut } from "../../context/UserContext";
+import { useUserDispatch, signOut, profileClick } from "../../context/UserContext";
 
 
 const notifications = [
@@ -103,7 +102,8 @@ export default function Header(props) {
             />
           )}
         </IconButton>
-        <Image src={nvtrImg} aspectRatio='1/20' imageStyle={{width:'inherit'}} />
+        <Typography variant='h3' className={classes.samarkan2}>navaritih</Typography>
+        {/* <Image src={nvtrImg} aspectRatio='1/20' imageStyle={{width:'inherit'}} /> */}
         <div className={classes.grow} />
         <div
           className={classNames(classes.search, {
@@ -185,7 +185,7 @@ export default function Header(props) {
               classes.headerMenuItem,
             )}
           >
-            <AccountIcon className={classes.profileMenuIcon} /> Profile
+            <AccountIcon className={classes.profileMenuIcon} onClick={() => profileClick(userDispatch, props.history)}/> Profile
           </MenuItem>
           <MenuItem
             className={classNames(
